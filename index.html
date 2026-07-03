@@ -510,7 +510,9 @@ function setLang(lang){
     for (let i = 0; i < N; i++) {
       let tx, ty, g;
       if (i < 12) {
-        const a = (i / 12) * Math.PI * 2, r = (i % 3 === 0 ? 6 : R * .12) * (.6 + (i % 5) * .12);
+        const ring = i < 6 ? 0 : 1;
+        const a = ((i % 6) / 6) * Math.PI * 2 + ring * Math.PI / 6;
+        const r = ring === 0 ? 12 : 25;
         tx = cx + Math.cos(a) * r; ty = cy + Math.sin(a) * r; g = -1;
       } else {
         const k = (i - 12) % 3, s = Math.floor((i - 12) / 3);
@@ -530,24 +532,25 @@ function setLang(lang){
     t += 1/60;
     // ordre monte et redescend lentement (cycle 14 s)
     const order = FORCED !== null ? FORCED : (Math.sin(t * 2 * Math.PI / 14 - Math.PI / 2) + 1) / 2;
+    const o = Math.min(1, order * 1.18);
     ctx.clearRect(0, 0, W, H);
     pts.forEach(p => {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0 || p.x > W) p.vx *= -1;
       if (p.y < 0 || p.y > H) p.vy *= -1;
-      p.dx = p.x + (p.tx - p.x) * order;
-      p.dy = p.y + (p.ty - p.y) * order;
+      p.dx = p.x + (p.tx - p.x) * o;
+      p.dy = p.y + (p.ty - p.y) * o;
     });
     // liens : proches en désordre, en chaîne ordonnée quand assemblé
     ctx.lineWidth = 1;
-    const LINK = 70 + 35 * order;
+    const LINK = 70 + 35 * o;
     for (let i = 0; i < N; i++) {
       for (let j = i + 1; j < N; j++) {
         const a = pts[i], b = pts[j];
         const d = Math.hypot(a.dx - b.dx, a.dy - b.dy);
-        const th = a.g === b.g ? LINK : 70 * (1 - order * .85);
+        const th = a.g === b.g ? LINK : 70 * (1 - o * .85);
         if (d < th) {
-          ctx.strokeStyle = 'rgba(127,209,200,' + ((a.g === b.g ? 0.22 + 0.32 * order : 0.22) * (1 - d / th)) + ')';
+          ctx.strokeStyle = 'rgba(127,209,200,' + ((a.g === b.g ? 0.22 + 0.32 * o : 0.22) * (1 - d / th)) + ')';
           ctx.beginPath(); ctx.moveTo(a.dx, a.dy); ctx.lineTo(b.dx, b.dy); ctx.stroke();
         }
       }
