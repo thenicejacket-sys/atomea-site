@@ -207,7 +207,7 @@ footer a{color:var(--cyan);text-decoration:none}
     </div>
     <div>
       <canvas id="particles" aria-hidden="true"></canvas>
-      <div class="hero-canvas-label" data-i18n="hero_canvas">fig. 01 — du désordre au flux</div>
+      <div class="hero-canvas-label" data-i18n="hero_canvas">fig. 01 — du désordre à l'atome</div>
     </div>
   </div>
 </div>
@@ -362,7 +362,7 @@ footer a{color:var(--cyan);text-decoration:none}
       <div class="faq" style="margin-top:36px">
         <details><summary data-i18n="faq1_q">Faut-il changer nos logiciels actuels ?</summary><p data-i18n="faq1_a">Non. Nous travaillons en priorité avec vos outils existants, que nous connectons et augmentons. Remplacer un système n'est envisagé que si c'est réellement la meilleure option pour vous.</p></details>
         <details><summary data-i18n="faq2_q">Nos données restent-elles confidentielles ?</summary><p data-i18n="faq2_a">Oui. Les solutions peuvent fonctionner en local ou sur vos environnements. La confidentialité est un critère de conception, pas une option.</p></details>
-        <details><summary data-i18n="faq3_q">Combien ça coûte ?</summary><p data-i18n="faq3_a">Le premier échange de 30 minutes est gratuit. Un Diagnostic Flash démarre à partir de 1 500 €, et une automatisation sur mesure est chiffrée au forfait, avec le retour sur investissement estimé avant d'engager quoi que ce soit.</p></details>
+        <details><summary data-i18n="faq3_q">Combien de temps avant de voir des résultats ?</summary><p data-i18n="faq3_a">Vite. Les premières automatisations sont généralement en production en quelques semaines, pas en plusieurs mois. Et chaque mission démarre par un diagnostic court qui fixe des objectifs mesurables — vous savez où vous allez avant de vous engager.</p></details>
         <details><summary data-i18n="faq4_q">Sommes-nous trop petits pour l'IA ?</summary><p data-i18n="faq4_a">Non. Les indépendants et les petites équipes sont souvent ceux qui gagnent le plus, le plus vite : moins de complexité, des résultats visibles en quelques semaines.</p></details>
         <details><summary data-i18n="faq5_q">Serons-nous dépendants de vous ensuite ?</summary><p data-i18n="faq5_a">Non — c'est même l'inverse. Chaque mission inclut un transfert de compétences pour que vos équipes soient autonomes. Un accompagnement continu existe, mais il est optionnel.</p></details>
       </div>
@@ -376,7 +376,6 @@ footer a{color:var(--cyan);text-decoration:none}
     <span class="mono eyebrow" data-i18n="cta_eyebrow">Prêt à commencer ?</span>
     <h2 data-i18n="cta_title">Et si on commençait par un diagnostic ?</h2>
     <p class="lead" data-i18n="cta_lead">30 minutes d'échange, sans engagement, pour identifier ensemble le potentiel d'automatisation de votre activité.</p>
-    <div class="price-tag" data-i18n="cta_price">Diagnostic Flash à partir de 1 500 € — premier échange gratuit</div>
     <div class="hero-ctas">
       <a class="cta-btn" href="mailto:contact@atomea.fr" data-i18n="cta_btn">Réserver un échange gratuit</a>
     </div>
@@ -398,7 +397,7 @@ const I18N_EN = {
   hero_title:"Your organization, <em>augmented</em> by artificial intelligence.",
   hero_sub:"From process diagnosis to custom-built tools and team training: Atomea makes AI concrete, useful and profitable — whatever the size of your organization.",
   hero_cta1:"Book a free call", hero_cta2:"Explore our services",
-  hero_canvas:"fig. 01 — from disorder to flow",
+  hero_canvas:"fig. 01 — from disorder to the atom",
   fric_eyebrow:"Sound familiar?",
   fric_title:"Days eaten up by tasks that add nothing.",
   fric_lead:"These frictions cost you money, every single day. They are exactly what we eliminate.",
@@ -450,13 +449,12 @@ const I18N_EN = {
   faq_title:"The questions we get asked.",
   faq1_q:"Do we need to replace our current software?", faq1_a:"No. We work first with your existing tools, which we connect and augment. Replacing a system is only considered if it is genuinely your best option.",
   faq2_q:"Does our data stay confidential?", faq2_a:"Yes. Solutions can run locally or on your own environments. Confidentiality is a design criterion, not an option.",
-  faq3_q:"How much does it cost?", faq3_a:"The first 30-minute call is free. A Flash Diagnosis starts at €1,500, and custom automation is priced as a fixed fee, with the estimated return on investment stated before you commit to anything.",
+  faq3_q:"How long before we see results?", faq3_a:"Fast. The first automations are typically in production within weeks, not months. And every engagement starts with a short diagnosis that sets measurable goals — you know where you are going before you commit.",
   faq4_q:"Are we too small for AI?", faq4_a:"No. Independent professionals and small teams often gain the most, the fastest: less complexity, visible results within weeks.",
   faq5_q:"Will we depend on you afterwards?", faq5_a:"No — quite the opposite. Every engagement includes skills transfer so your teams become autonomous. Ongoing support exists, but it is optional.",
   cta_eyebrow:"Ready to start?",
   cta_title:"Why not start with a diagnosis?",
   cta_lead:"A free 30-minute conversation, no strings attached, to identify the automation potential of your business together.",
-  cta_price:"Flash Diagnosis from €1,500 — first call free",
   cta_btn:"Book a free call",
   foot_def:"Automated Target Operating Model & Enterprise AI",
   foot_legal:"© 2026 Atomea. All rights reserved."
@@ -498,6 +496,7 @@ function setLang(lang){
   const cv = document.getElementById('particles');
   const ctx = cv.getContext('2d');
   let W, H, pts = [], t = 0;
+  const FORCED = (() => { const v = new URLSearchParams(location.search).get('order'); return v === null ? null : Math.max(0, Math.min(1, parseFloat(v))); })();
   const N = 54;
 
   function resize(){
@@ -506,20 +505,31 @@ function setLang(lang){
     cv.width = W * dpr; cv.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     pts = [];
+    // figure d'atome : 12 points de noyau + 42 points sur 3 orbites elliptiques
+    const cx = W / 2, cy = H / 2, R = Math.min(W * .46, H * .46);
     for (let i = 0; i < N; i++) {
-      const row = i % 6, col = Math.floor(i / 6);
+      let tx, ty, g;
+      if (i < 12) {
+        const a = (i / 12) * Math.PI * 2, r = (i % 3 === 0 ? 6 : R * .12) * (.6 + (i % 5) * .12);
+        tx = cx + Math.cos(a) * r; ty = cy + Math.sin(a) * r; g = -1;
+      } else {
+        const k = (i - 12) % 3, s = Math.floor((i - 12) / 3);
+        const t = (s / 14) * Math.PI * 2, rot = k * Math.PI / 3;
+        const ex = Math.cos(t) * R, ey = Math.sin(t) * R * .36;
+        tx = cx + ex * Math.cos(rot) - ey * Math.sin(rot);
+        ty = cy + ex * Math.sin(rot) + ey * Math.cos(rot); g = k;
+      }
       pts.push({
         x: Math.random() * W, y: Math.random() * H,
         vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4,
-        tx: 40 + col * ((W - 80) / Math.max(1, Math.ceil(N / 6) - 1)),
-        ty: 60 + row * ((H - 120) / 5) + Math.sin(col * .9) * 16
+        tx, ty, g
       });
     }
   }
   function frame(){
     t += 1/60;
     // ordre monte et redescend lentement (cycle 14 s)
-    const order = (Math.sin(t * 2 * Math.PI / 14 - Math.PI / 2) + 1) / 2;
+    const order = FORCED !== null ? FORCED : (Math.sin(t * 2 * Math.PI / 14 - Math.PI / 2) + 1) / 2;
     ctx.clearRect(0, 0, W, H);
     pts.forEach(p => {
       p.x += p.vx; p.y += p.vy;
@@ -530,12 +540,14 @@ function setLang(lang){
     });
     // liens : proches en désordre, en chaîne ordonnée quand assemblé
     ctx.lineWidth = 1;
+    const LINK = 70 + 35 * order;
     for (let i = 0; i < N; i++) {
       for (let j = i + 1; j < N; j++) {
         const a = pts[i], b = pts[j];
         const d = Math.hypot(a.dx - b.dx, a.dy - b.dy);
-        if (d < 70) {
-          ctx.strokeStyle = 'rgba(127,209,200,' + (0.22 * (1 - d / 70)) + ')';
+        const th = a.g === b.g ? LINK : 70 * (1 - order * .85);
+        if (d < th) {
+          ctx.strokeStyle = 'rgba(127,209,200,' + ((a.g === b.g ? 0.22 + 0.32 * order : 0.22) * (1 - d / th)) + ')';
           ctx.beginPath(); ctx.moveTo(a.dx, a.dy); ctx.lineTo(b.dx, b.dy); ctx.stroke();
         }
       }
