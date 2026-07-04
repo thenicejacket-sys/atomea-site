@@ -22,7 +22,7 @@
   --radius:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}section[id],div[id]{scroll-margin-top:108px}
+html{scroll-behavior:smooth}section[id],div[id]{scroll-margin-top:118px}
 body{font-family:'IBM Plex Sans',sans-serif;font-size:17px;line-height:1.65;color:var(--ink);background:var(--paper)}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 a{color:var(--cobalt)}
@@ -31,12 +31,13 @@ a{color:var(--cobalt)}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
 /* ── header ── */
+header .wrap{max-width:none;padding:0 36px}
 header{position:sticky;top:0;z-index:50;background:rgba(13,31,53,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:94px;gap:24px}
 .logo-stack{display:flex;flex-direction:column;line-height:1.25}
-.logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;font-weight:400;letter-spacing:.02em;color:#C6D3E2}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;color:#fff;text-decoration:none;letter-spacing:.18em}
-.logo-mark{width:36px;height:36px;flex:none}
+.logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:.02em;color:#C6D3E2}
+.logo{display:flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.18em}
+.logo-mark{width:50px;height:50px;flex:none}
 .logo-mark .orbits{transform-origin:50% 50%}
 .logo:hover .logo-mark .orbits{animation:orbit 8s linear infinite}
 @keyframes orbit{to{transform:rotate(360deg)}}
