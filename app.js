@@ -62,6 +62,7 @@ const I18N_EN = {
   ab_caption:"Aymeric Barre — founder",
   ab_p1:"Atomea was founded by <strong>Aymeric Barre</strong>, an organizational transformation consultant. After 15+ years optimizing processes for large international groups, one conclusion stands out: artificial intelligence radically changes what is possible — transformations that used to take years now succeed in months.",
   ab_p2:"Atomea was born from this conviction: <strong>every organization, whatever its size, deserves access to the power of AI</strong> — pragmatically, without jargon, and with measurable results.",
+  faq_eyebrow:"Frequently asked questions",
   faq_title:"The questions we get asked.",
   faq1_q:"Do we need to replace our current software?", faq1_a:"No. We work first with your existing tools, which we connect and augment. Replacing a system is only considered if it is genuinely your best option.",
   faq2_q:"Does our data stay confidential?", faq2_a:"Yes. Solutions can run locally or on your own environments. Confidentiality is a design criterion, not an option.",
@@ -73,6 +74,7 @@ const I18N_EN = {
   cta_lead:"A free 30-minute conversation, no strings attached, to identify the automation potential of your business together.",
   cta_btn:"Book a free call",
   foot_def:"Automated Target Operating Model & Enterprise AI",
+  foot_home:"Home", foot_contact:"Contact",
   foot_legal:"© 2026 Atomea. All rights reserved."
 };
 
@@ -95,10 +97,13 @@ function setLang(lang){
     if (v !== undefined) el.innerHTML = v;
   });
   document.documentElement.lang = lang;
-  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const lf = document.getElementById('lang-flag');
+  if (lf) lf.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
   try { localStorage.setItem('atomea-lang', lang); } catch(e){}
 }
+document.getElementById('lang-flag').addEventListener('click', () => {
+  setLang(document.documentElement.lang === 'fr' ? 'en' : 'fr');
+});
 (function(){
   let saved = null;
   try { saved = localStorage.getItem('atomea-lang'); } catch(e){}
@@ -122,7 +127,7 @@ function setLang(lang){
   const ctx = cv.getContext('2d');
   let W, H, pts = [], t = 0;
   const FORCED = (() => { const v = new URLSearchParams(location.search).get('order'); return v === null ? null : Math.max(0, Math.min(1, parseFloat(v))); })();
-  const N = 54;
+  const N = 84;
 
   function resize(){
     W = cv.clientWidth; H = cv.clientHeight;
@@ -130,22 +135,15 @@ function setLang(lang){
     cv.width = W * dpr; cv.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     pts = [];
-    // figure d'atome : 12 points de noyau + 42 points sur 3 orbites elliptiques
+    // figure d'atome : 3 orbites elliptiques denses, centre laissé vide (pas d'amas central)
     const cx = W / 2, cy = H / 2, R = Math.min(W * .46, H * .46);
     for (let i = 0; i < N; i++) {
-      let tx, ty, g;
-      if (i < 12) {
-        const ring = i < 4 ? 0 : 1;
-        const a = ring === 0 ? (i / 4) * Math.PI * 2 + Math.PI / 4 : ((i - 4) / 8) * Math.PI * 2;
-        const r = ring === 0 ? 6 : 14;
-        tx = cx + Math.cos(a) * r; ty = cy + Math.sin(a) * r; g = -1;
-      } else {
-        const k = (i - 12) % 3, s = Math.floor((i - 12) / 3);
-        const t = (s / 14) * Math.PI * 2, rot = k * Math.PI / 3;
-        const ex = Math.cos(t) * R, ey = Math.sin(t) * R * .36;
-        tx = cx + ex * Math.cos(rot) - ey * Math.sin(rot);
-        ty = cy + ex * Math.sin(rot) + ey * Math.cos(rot); g = k;
-      }
+      const k = i % 3, s = Math.floor(i / 3);
+      const t = (s / (N / 3)) * Math.PI * 2, rot = k * Math.PI / 3;
+      const ex = Math.cos(t) * R, ey = Math.sin(t) * R * .36;
+      const tx = cx + ex * Math.cos(rot) - ey * Math.sin(rot);
+      const ty = cy + ex * Math.sin(rot) + ey * Math.cos(rot);
+      const g = k;
       pts.push({
         x: Math.random() * W, y: Math.random() * H,
         vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4,
@@ -175,7 +173,7 @@ function setLang(lang){
         const d = Math.hypot(a.dx - b.dx, a.dy - b.dy);
         const th = a.g === b.g ? LINK : 70 * (1 - o * .85);
         if (d < th) {
-          ctx.strokeStyle = 'rgba(127,209,200,' + ((a.g === b.g ? 0.22 + 0.32 * o : 0.22) * (1 - d / th)) + ')';
+          ctx.strokeStyle = 'rgba(127,209,200,' + ((a.g === b.g ? 0.3 + 0.32 * o : 0.26) * (1 - d / th)) + ')';
           ctx.beginPath(); ctx.moveTo(a.dx, a.dy); ctx.lineTo(b.dx, b.dy); ctx.stroke();
         }
       }
@@ -189,4 +187,19 @@ function setLang(lang){
   resize();
   window.addEventListener('resize', resize);
   requestAnimationFrame(frame);
+})();
+
+/* ══════════ Menu mobile ══════════ */
+(function(){
+  const btn = document.getElementById('menu-btn');
+  const panel = document.getElementById('mobile-nav');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', () => {
+    const open = document.body.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('nav-open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
 })();
