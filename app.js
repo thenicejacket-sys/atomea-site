@@ -55,7 +55,7 @@ const I18N_EN = {
   cas_title:"Solutions in production, not slides.",
   cas_lead:"A few examples of what we have built and deployed.",
   cas1_tag:"Energy renovation", cas1_t:"Reliable project reviews", cas1_p:"Custom project review and pre-costing application: faster file analysis, safer commitment decisions.", cas1_r:"Hours of analysis reduced to minutes",
-  cas2_tag:"Energy renovation", cas2_t:"Audit quality control", cas2_p:"Automated audit comparison and control tool: inconsistencies and deviations detected systematically.", cas2_r:"In production, used daily",
+  cas2_tag:"Energy renovation", cas2_t:"Audit quality control", cas2_p:"Automated audit comparison and control tool: inconsistencies and deviations detected systematically.", cas2_r:"30–45 min saved per file, on 20–30 files every month",
   cas3_tag:"Productivity", cas3_t:"Intelligent meeting assistant", cas3_p:"Fully local, confidential meeting recording and analysis: minutes, decisions and action items generated effortlessly.", cas3_r:"Total confidentiality — no data leaves",
   cas4_tag:"Artificial intelligence", cas4_t:"AI agent ecosystem", cas4_p:"A complete set of specialized AI assistants — analysis, diagnosis, proposal drafting, automated monitoring — mastered end to end.", cas4_r:"The expertise we put at your service",
   ab_eyebrow:"About us",
