@@ -199,6 +199,9 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .final{padding:96px 0;text-align:center}
 .final h2{margin:0 auto 14px}
 .final .lead{margin:0 auto 12px}
+.li-icon{display:inline-flex;margin-top:26px;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
+.li-icon:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(10,102,194,.35)}
+.li-icon svg{display:block;border-radius:6px}
 .contact-links{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
 .contact-links a{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:var(--radius);padding:13px 22px;text-decoration:none;color:var(--ink);background:#fff;font-weight:500}
 .contact-links a:hover{border-color:var(--cobalt);color:var(--cobalt)}
