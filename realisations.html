@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Réalisations — Atomea</title>
 <meta name="description" content="Des solutions IA en production : revue de projets, contrôle qualité d'audits énergétiques, assistant de réunion confidentiel, écosystème d'agents.">
+<!-- Open Graph — mettre à jour og:url et og:image lors du passage au domaine custom -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Réalisations — Atomea">
+<meta property="og:description" content="Des solutions en production, pas des slides : revues de projets, contrôle qualité d'audits, assistants IA — construites et déployées.">
+<meta property="og:url" content="https://thenicejacket-sys.github.io/atomea-site/realisations.html">
+<meta property="og:image" content="https://thenicejacket-sys.github.io/atomea-site/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230D1F35'/%3E%3Cg stroke='%237FD1C8' stroke-width='1.4' fill='none' opacity='.85'%3E%3Cellipse cx='20' cy='20' rx='15' ry='6'/%3E%3Cellipse cx='20' cy='20' rx='15' ry='6' transform='rotate(60 20 20)'/%3E%3Cellipse cx='20' cy='20' rx='15' ry='6' transform='rotate(120 20 20)'/%3E%3C/g%3E%3Ccircle cx='18.4' cy='19.2' r='3.6' fill='%232E5BFF'/%3E%3Ccircle cx='22.4' cy='18.8' r='2.9' fill='%237FD1C8'/%3E%3Ccircle cx='20.4' cy='22.4' r='2.9' fill='%231E3E8F'/%3E%3Ccircle cx='5' cy='20' r='1.7' fill='%23fff'/%3E%3Ccircle cx='35' cy='20' r='1.7' fill='%237FD1C8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +26,7 @@
     <div class="nav-right">
       <nav class="nav-links" aria-label="Navigation">
         <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+        <a href="experts-comptables.html"><span data-i18n="nav_ec">Experts-comptables</span></a>
         <a href="methode.html"><span data-i18n="nav_method">Méthode</span></a>
         <a class="active" href="realisations.html"><span data-i18n="nav_cases">Réalisations</span></a>
         <a href="apropos.html"><span data-i18n="nav_about">À propos</span></a>
@@ -34,6 +42,7 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
   <a href="index.html" data-i18n="foot_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="experts-comptables.html" data-i18n="nav_ec">Experts-comptables</a>
   <a href="methode.html" data-i18n="nav_method">Méthode</a>
   <a class="active" href="realisations.html" data-i18n="nav_cases">Réalisations</a>
   <a href="apropos.html" data-i18n="nav_about">À propos</a>
@@ -47,22 +56,36 @@
 <div class="blueprint page-hero">
   <div class="wrap">
     <span class="mono eyebrow" data-i18n="cas_eyebrow">Réalisations</span>
-    <h2 data-i18n="cas_title">Des solutions en production, pas des slides.</h2>
+    <h1 data-i18n="cas_title">Des solutions en production, pas des slides.</h1>
     <p class="lead" data-i18n="cas_lead">Quelques exemples de ce que nous avons construit et déployé.</p>
   </div>
 </div>
 
 <section id="realisations">
   <div class="wrap">
+    <p class="lead" data-i18n="cas_intro">Nos premiers outils sont nés dans la rénovation énergétique — un secteur exigeant en volume et en conformité. Les mêmes briques (revue de dossiers, contrôles automatiques, relances, agents spécialisés) sont celles que nous déployons dans les cabinets comptables.</p>
     <div class="cases">
-      <div class="case"><span class="mono" data-i18n="cas1_tag">Rénovation énergétique</span><h3 data-i18n="cas1_t">Fiabilisation des revues de projets</h3><p data-i18n="cas1_p">Application sur mesure de revue et de pré-chiffrage de projets : analyse des dossiers accélérée, décisions d'engagement sécurisées.</p><div class="result" data-i18n="cas1_r">≈ 30 à 45 min gagnées par dossier — et bien moins d'erreurs</div></div>
+      <div class="case"><span class="mono" data-i18n="cas1_tag">Rénovation énergétique</span><h3 data-i18n="cas1_t">Fiabilisation des revues de projets</h3><p data-i18n="cas1_p">Application sur mesure de revue et de pré-chiffrage de projets : analyse des dossiers accélérée, décisions d'engagement sécurisées.</p><div class="result" data-i18n="cas1_r">L'analyse d'un dossier passe d'heures à quelques minutes — et bien moins d'erreurs</div></div>
       <div class="case"><span class="mono" data-i18n="cas2_tag">Rénovation énergétique</span><h3 data-i18n="cas2_t">Contrôle qualité des audits</h3><p data-i18n="cas2_p">Outil de comparaison et de contrôle automatisé d'audits énergétiques : incohérences et écarts détectés systématiquement.</p><div class="result" data-i18n="cas2_r">30 à 45 min gagnées par dossier, sur 20 à 30 dossiers chaque mois</div></div>
       <div class="case"><span class="mono" data-i18n="cas3_tag">Productivité</span><h3 data-i18n="cas3_t">Assistant de réunion intelligent</h3><p data-i18n="cas3_p">Solution d'enregistrement et d'analyse automatique de réunions, 100 % locale et confidentielle : comptes-rendus, décisions et actions générés sans effort.</p><div class="result" data-i18n="cas3_r">Compte-rendu prêt à envoyer quelques minutes après chaque réunion</div></div>
       <div class="case"><span class="mono" data-i18n="cas4_tag">Intelligence artificielle</span><h3 data-i18n="cas4_t">Écosystème d'agents IA</h3><p data-i18n="cas4_p">Ensemble complet d'assistants IA spécialisés — analyse, diagnostic, rédaction d'offres, veille automatisée — maîtrisé de bout en bout.</p><div class="result" data-i18n="cas4_r">Une équipe d'assistants IA disponible 24 h/24, 7 j/7</div></div>
+      <div class="case" style="grid-column:1/-1;border-left:5px solid var(--cobalt)"><span class="mono" data-i18n="cas6_tag">Cabinets comptables</span><h3 data-i18n="cas6_t">Et pour votre cabinet ?</h3><p data-i18n="cas6_p">Revue de dossiers, contrôles systématiques, relances automatiques : ces outils en production sont exactement ceux d'une production comptable. Nous les adaptons à votre dossier de travail.</p><div class="result"><a href="experts-comptables.html" style="text-decoration:none" data-i18n="cas6_r">Découvrir l'offre cabinets →</a></div></div>
     </div>
     <div class="niche-card" style="margin-top:22px">
       <span class="mono" style="color:var(--cobalt);display:block;margin-bottom:10px" data-i18n="cas5_tag">Mission en cours</span>
-      <p data-i18n-html="cas5_p" style="color:var(--ink-soft);max-width:52em">Un acteur majeur de la rénovation énergétique prépare avec nous sa <strong>transformation digitale complète</strong> : objectif <strong>doubler à tripler l'activité</strong>, à effectif constant, en automatisant la majorité des flux métier.</p>
+      <p data-i18n-html="cas5_p" style="color:var(--ink-soft);max-width:52em">Une entreprise de taille moyenne de la rénovation énergétique prépare avec nous sa <strong>transformation digitale complète</strong> : objectif <strong>doubler à tripler l'activité</strong> dans les prochains mois, à effectif constant, en automatisant la majorité des flux métier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <span class="mono eyebrow" data-i18n="cta_eyebrow">Prêt à commencer ?</span>
+    <h2 data-i18n="cta_title">Et si on commençait par un diagnostic ?</h2>
+    <p class="lead" data-i18n="cta_lead">30 minutes d'échange, sans engagement, pour identifier ensemble le potentiel d'automatisation de votre activité.</p>
+    <div class="hero-ctas">
+      <a class="cta-btn" href="contact.html" data-i18n="cta_btn">Réserver un échange gratuit</a>
     </div>
   </div>
 </section>
@@ -78,6 +101,7 @@
     <nav class="foot-nav" aria-label="Navigation pied de page">
       <a href="index.html" data-i18n="foot_home">Accueil</a>
       <a href="services.html" data-i18n="nav_services">Services</a>
+      <a href="experts-comptables.html" data-i18n="nav_ec">Experts-comptables</a>
       <a href="methode.html" data-i18n="nav_method">Méthode</a>
       <a href="realisations.html" data-i18n="nav_cases">Réalisations</a>
       <a href="apropos.html" data-i18n="nav_about">À propos</a>

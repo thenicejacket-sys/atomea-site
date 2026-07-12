@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atomea — Conseil, automatisation & IA d'entreprise</title>
 <meta name="description" content="Atomea accompagne les entreprises dans la transformation de leur organisation grâce à l'automatisation et à l'intelligence artificielle. Conseil, outils sur mesure, formation.">
+<!-- Open Graph — mettre à jour og:url et og:image lors du passage au domaine custom -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atomea — Conseil, automatisation & IA d'entreprise">
+<meta property="og:description" content="Saisie, relances, reporting : déléguez ça à l'IA. Diagnostic, automatisation, outils sur mesure, formation — des résultats mesurables en quelques semaines.">
+<meta property="og:url" content="https://thenicejacket-sys.github.io/atomea-site/index.html">
+<meta property="og:image" content="https://thenicejacket-sys.github.io/atomea-site/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230D1F35'/%3E%3Cg stroke='%237FD1C8' stroke-width='1.4' fill='none' opacity='.85'%3E%3Cellipse cx='20' cy='20' rx='15' ry='6'/%3E%3Cellipse cx='20' cy='20' rx='15' ry='6' transform='rotate(60 20 20)'/%3E%3Cellipse cx='20' cy='20' rx='15' ry='6' transform='rotate(120 20 20)'/%3E%3C/g%3E%3Ccircle cx='18.4' cy='19.2' r='3.6' fill='%232E5BFF'/%3E%3Ccircle cx='22.4' cy='18.8' r='2.9' fill='%237FD1C8'/%3E%3Ccircle cx='20.4' cy='22.4' r='2.9' fill='%231E3E8F'/%3E%3Ccircle cx='5' cy='20' r='1.7' fill='%23fff'/%3E%3Ccircle cx='35' cy='20' r='1.7' fill='%237FD1C8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +26,7 @@
     <div class="nav-right">
       <nav class="nav-links" aria-label="Navigation">
         <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+        <a href="experts-comptables.html"><span data-i18n="nav_ec">Experts-comptables</span></a>
         <a href="methode.html"><span data-i18n="nav_method">Méthode</span></a>
         <a href="realisations.html"><span data-i18n="nav_cases">Réalisations</span></a>
         <a href="apropos.html"><span data-i18n="nav_about">À propos</span></a>
@@ -34,6 +42,7 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
   <a class="active" href="index.html" data-i18n="foot_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="experts-comptables.html" data-i18n="nav_ec">Experts-comptables</a>
   <a href="methode.html" data-i18n="nav_method">Méthode</a>
   <a href="realisations.html" data-i18n="nav_cases">Réalisations</a>
   <a href="apropos.html" data-i18n="nav_about">À propos</a>
@@ -82,6 +91,37 @@
   </div>
 </section>
 
+<!-- NOS TERRAINS -->
+<div class="blueprint" id="terrains">
+  <section>
+  <div class="wrap">
+    <span class="mono eyebrow" data-i18n="ter_eyebrow">Nos terrains</span>
+    <h2 data-i18n="ter_title">Trois terrains, une même méthode.</h2>
+    <p class="lead" data-i18n="ter_lead">Partout où des processus se répètent, nous les automatisons. Trois terrains où nous livrons aujourd'hui.</p>
+    <div class="terrains-grid">
+      <a class="terrain" href="experts-comptables.html">
+        <span class="mono" data-i18n="ter1_tag">secteur prioritaire</span>
+        <h3 data-i18n="ter1_t">Cabinets d'expertise comptable</h3>
+        <p data-i18n="ter1_p">Collecte des pièces, saisie, lettrage, révision, relances clients : nous automatisons la production du cabinet — et le préparons à la facturation électronique.</p>
+        <span class="go" data-i18n="ter1_go">La page dédiée →</span>
+      </a>
+      <a class="terrain" href="realisations.html">
+        <span class="mono" data-i18n="ter2_tag">en production</span>
+        <h3 data-i18n="ter2_t">Rénovation énergétique & CEE</h3>
+        <p data-i18n="ter2_p">Revues de projets, contrôle qualité des audits, pré-chiffrage : nos outils tournent chaque jour chez une entreprise de taille moyenne en pleine croissance.</p>
+        <span class="go" data-i18n="ter2_go">Voir les réalisations →</span>
+      </a>
+      <a class="terrain" href="services.html">
+        <span class="mono" data-i18n="ter3_tag">tous secteurs</span>
+        <h3 data-i18n="ter3_t">PME & directions financières</h3>
+        <p data-i18n="ter3_p">Reporting, contrôles manuels, ressaisie entre outils : les frictions sont les mêmes partout — et les gains aussi.</p>
+        <span class="go" data-i18n="ter3_go">Découvrir nos services →</span>
+      </a>
+    </div>
+  </div>
+  </section>
+</div>
+
 <!-- RÉSULTATS -->
 <section id="resultats">
   <div class="wrap">
@@ -89,8 +129,8 @@
     <h2 data-i18n="res_title">Ce que gagnent les entreprises qui automatisent avec nous.</h2>
     <div class="results-grid">
       <div class="result-card"><span class="big" data-i18n="res1_n">30 à 45 min</span><p data-i18n="res1">gagnées par dossier sur les revues et contrôles — 20 à 30 dossiers traités chaque mois</p></div>
-      <div class="result-card"><span class="big" data-i18n="res2_n">×2 à ×3</span><p data-i18n="res2">c'est l'objectif d'activité d'un acteur majeur de la rénovation énergétique, à effectif constant</p></div>
-      <div class="result-card"><span class="big">24/7</span><p data-i18n="res3">une équipe d'assistants IA disponible en permanence, du diagnostic à la rédaction d'offres</p></div>
+      <div class="result-card"><span class="big" data-i18n="res2_n">×2 à ×3</span><p data-i18n="res2">c'est l'objectif d'activité d'une entreprise de taille moyenne de la rénovation énergétique, à effectif constant</p></div>
+      <div class="result-card"><span class="big" data-i18n="res3_n">2 à 4 sem.</span><p data-i18n="res3">c'est le délai type d'un pilote — mesuré sur vos propres dossiers, avant tout déploiement</p></div>
     </div>
     <a class="results-link" href="realisations.html" data-i18n="res_link">Voir les réalisations →</a>
   </div>
@@ -103,11 +143,23 @@
     <p class="mission-text" data-i18n-html="mi_text">Aider les entreprises à passer de <span class="from">l'actuel</span> à <span class="to">l'idéal</span>.</p>
     <p class="mission-sub" data-i18n="mi_sub">Votre entreprise augmentée par l'automatisation, l'intelligence artificielle et une organisation repensée.</p>
     <div class="mission-levers">
-      <span class="lever" data-i18n="mi_lever5">Équipes</span>
       <span class="lever" data-i18n="mi_lever1">Stratégie</span>
-      <span class="lever" data-i18n="mi_lever4">Processus</span>
       <span class="lever" data-i18n="mi_lever3">Organisation</span>
+      <span class="lever" data-i18n="mi_lever4">Processus</span>
       <span class="lever" data-i18n="mi_lever2">Outils</span>
+      <span class="lever" data-i18n="mi_lever5">Équipes</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <span class="mono eyebrow" data-i18n="cta_eyebrow">Prêt à commencer ?</span>
+    <h2 data-i18n="cta_title">Et si on commençait par un diagnostic ?</h2>
+    <p class="lead" data-i18n="cta_lead">30 minutes d'échange, sans engagement, pour identifier ensemble le potentiel d'automatisation de votre activité.</p>
+    <div class="hero-ctas">
+      <a class="cta-btn" href="contact.html" data-i18n="cta_btn">Réserver un échange gratuit</a>
     </div>
   </div>
 </section>
@@ -123,6 +175,7 @@
     <nav class="foot-nav" aria-label="Navigation pied de page">
       <a href="index.html" data-i18n="foot_home">Accueil</a>
       <a href="services.html" data-i18n="nav_services">Services</a>
+      <a href="experts-comptables.html" data-i18n="nav_ec">Experts-comptables</a>
       <a href="methode.html" data-i18n="nav_method">Méthode</a>
       <a href="realisations.html" data-i18n="nav_cases">Réalisations</a>
       <a href="apropos.html" data-i18n="nav_about">À propos</a>
