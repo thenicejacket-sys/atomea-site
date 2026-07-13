@@ -1,6 +1,6 @@
 # Atomea — Site vitrine
 
-Site multi-pages bilingue FR/EN d'**Atomea** (Automated Target Operating Model & Enterprise AI) — cabinet de conseil en transformation d'organisation, automatisation et IA d'entreprise.
+Site multi-pages bilingue FR/EN d'**Atomea** — cabinet de conseil en transformation d'organisation, automatisation et IA d'entreprise.
 
 ## Caractéristiques
 
