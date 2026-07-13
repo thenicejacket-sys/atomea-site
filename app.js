@@ -83,8 +83,8 @@ const I18N_EN = {
   evo_tag:"Fitness app", evo_t:"Evolve — strength coaching", evo_p:"A strength-training coaching app: structured programs, load and RPE tracking, block periodization. Designed, developed and shipped to production.", evo_r:"A complete product, online and used daily",
   cardio_tag:"Fitness app", cardio_t:"Cardio — guided training", cardio_p:"A cardio-training app: paced sessions, an AI voice coach, round timer and motivational cues synthesized in real time.", cardio_r:"Real-time AI voice and polished UX, end to end",
   asst_tag:"AI assistant", asst_t:"Versatile AI assistant", asst_p:"A voice-driven assistant: natural-language commands, tool and connected-device integration, orchestration of specialized agents and everyday task automation.", asst_r:"Voice, API integrations and multi-agent — the architecture of a business assistant",
-  cas1_tag:"Energy renovation", cas1_t:"Reliable project reviews", cas1_p:"Custom project review and pre-costing app: faster analysis, errors eliminated, safer commitment decisions — and a clear view of bottlenecks to steer proactively.", cas1_r:"saved per project — profitability analysis goes from hours to minutes",
-  cas2_tag:"Energy renovation", cas2_t:"Audit quality control", cas2_p:"Automated audit comparison and control tool: inconsistencies and deviations detected systematically.", cas2_r:"of a full-time role freed up every month — 45 min saved per file, across 20–30 files",
+  cas1_tag:"Energy renovation", cas1_t:"Reliable project reviews", cas1_p:"Custom project review and pre-costing app: faster analysis, errors eliminated, safer commitment decisions — and a clear view of bottlenecks to steer proactively.", cas1_r:"A project's profitability analysis goes from hours to minutes — with far fewer errors",
+  cas2_tag:"Energy renovation", cas2_t:"Audit quality control", cas2_p:"Automated audit comparison and control tool: inconsistencies and deviations detected systematically.", cas2_r:"Inconsistencies and deviations detected systematically, file after file",
   cas3_tag:"Productivity", cas3_t:"Intelligent meeting assistant", cas3_p:"Fully local, confidential meeting recording and analysis: minutes, decisions and action items generated effortlessly.", cas3_r:"Minutes ready to send within moments of every meeting",
   cas4_tag:"Artificial intelligence", cas4_t:"AI agent ecosystem", cas4_p:"A complete set of specialized AI assistants — analysis, diagnosis, proposal drafting, automated monitoring — mastered end to end.", cas4_r:"A team of AI assistants available 24/7",
   cas5_tag:"Ongoing mission",
@@ -114,9 +114,10 @@ const I18N_EN = {
   cta_lead:"A free 30-minute conversation, no strings attached, to identify the automation potential of your business together.",
   cta_btn:"Book a free call",
   cc_eyebrow:"Contact",
-  cc_title:"Let's talk about your next time saving.",
-  cc_role:"Founder of Atomea — finance processes & SAP, automation & AI",
-  cc_book:"Book 30 min",
+  cc_title:"A question? Let's talk.",
+  cc_lead:"A question, a project, a request? Write to us — we reply fast.",
+  cc_open:"Write a message",
+  es1:"saved per energy-audit file", es2:"audit files processed every month", es3:"of a full-time role freed up, at constant headcount",
   ec_eyebrow:"Accounting firms",
   ec_title:"Your firm has better things to do than data entry.",
   ec_lead:"Document collection, data entry, reconciliation, review, client reminders: we automate the firm's production to give advisory time back to your team — without changing your software, and with professional secrecy as a design constraint.",
@@ -293,7 +294,7 @@ document.getElementById('lang-flag').addEventListener('click', () => {
   function run(el){
     const to = parseFloat(el.dataset.to);
     if (reduce) { el.textContent = fmt(el, to); return; }
-    const dur = 1300; let start = null;
+    const dur = 2200; let start = null;
     function step(ts){
       if (start === null) start = ts;
       const p = Math.min(1, (ts - start) / dur);
@@ -309,6 +310,65 @@ document.getElementById('lang-flag').addEventListener('click', () => {
     entries.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
   }, { threshold: 0.4 });
   els.forEach(el => io.observe(el));
+})();
+
+/* ══════════ Pop-up contact ══════════ */
+(function(){
+  const T = {
+    fr:{title:"Contactez-nous", sub:"Une question, un projet ? Écrivez-nous, on vous répond vite.", name:"Nom", email:"Email", subject:"Objet", message:"Message", send:"Envoyer", sending:"Envoi…", ok:"Merci ! Votre message a bien été envoyé.", err:"Envoi impossible pour le moment — écrivez-nous à contact@atomea.io."},
+    en:{title:"Contact us", sub:"A question, a project? Write to us, we reply fast.", name:"Name", email:"Email", subject:"Subject", message:"Message", send:"Send", sending:"Sending…", ok:"Thanks! Your message has been sent.", err:"Couldn't send right now — email us at contact@atomea.io."}
+  };
+  const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'fr');
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML =
+    '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="cm-title">' +
+    '<button class="modal-close" type="button" aria-label="Fermer">×</button>' +
+    '<h2 id="cm-title"></h2><p class="sub"></p>' +
+    '<form id="cm-form" novalidate>' +
+    '<div class="field"><label data-f="name"></label><input name="name" required autocomplete="name"></div>' +
+    '<div class="field"><label data-f="email"></label><input type="email" name="email" required autocomplete="email"></div>' +
+    '<div class="field"><label data-f="subject"></label><input name="subject"></div>' +
+    '<div class="field"><label data-f="message"></label><textarea name="message" required></textarea></div>' +
+    '<input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+    '<input type="hidden" name="_captcha" value="false">' +
+    '<input type="hidden" name="_subject" value="Nouveau message depuis atomea.io">' +
+    '<button class="cta-btn" type="submit"></button>' +
+    '<div class="modal-status" id="cm-status" role="status"></div>' +
+    '</form></div>';
+  document.body.appendChild(overlay);
+  const form = overlay.querySelector('#cm-form');
+  const statusEl = overlay.querySelector('#cm-status');
+  function apply(){
+    const t = T[lang()];
+    overlay.querySelector('#cm-title').textContent = t.title;
+    overlay.querySelector('.sub').textContent = t.sub;
+    overlay.querySelector('[data-f="name"]').textContent = t.name;
+    overlay.querySelector('[data-f="email"]').textContent = t.email;
+    overlay.querySelector('[data-f="subject"]').textContent = t.subject;
+    overlay.querySelector('[data-f="message"]').textContent = t.message;
+    overlay.querySelector('button[type="submit"]').textContent = t.send;
+  }
+  apply();
+  new MutationObserver(apply).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
+  function openModal(e){ if(e) e.preventDefault(); overlay.classList.add('open'); statusEl.textContent=''; statusEl.className='modal-status'; setTimeout(()=>{ const i=overlay.querySelector('input[name="name"]'); if(i) i.focus(); }, 40); }
+  function closeModal(){ overlay.classList.remove('open'); }
+  overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+  overlay.querySelector('.modal-close').addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+  document.querySelectorAll('.help-btn, [data-open-contact]').forEach(el => el.addEventListener('click', openModal));
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if(form._honey.value) return;
+    const t = T[lang()];
+    statusEl.className='modal-status'; statusEl.textContent = t.sending;
+    try{
+      const res = await fetch('https://formsubmit.co/ajax/contact@atomea.io', {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)});
+      const j = await res.json().catch(()=>({}));
+      if(res.ok && (j.success===true || j.success==='true')){ statusEl.className='modal-status ok'; statusEl.textContent = t.ok; form.reset(); }
+      else throw new Error('fail');
+    }catch(err){ statusEl.className='modal-status err'; statusEl.textContent = t.err; }
+  });
 })();
 
 /* ══════════ Menu mobile ══════════ */

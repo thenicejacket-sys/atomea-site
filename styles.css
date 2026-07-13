@@ -29,8 +29,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,31,53,.92);backdrop-f
 .logo-stack{display:flex;flex-direction:column;line-height:1.25}
 .logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:.02em;color:#C6D3E2}
 .logo{display:flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.18em}
-.logo-mark{width:50px;height:50px;flex:none;transform-origin:50% 50%;animation:flip3d 16s linear infinite}
-.logo:hover .logo-mark{animation-duration:6s}
+.logo-mark{width:50px;height:50px;flex:none;transform-origin:50% 50%;animation:flip3d 9s linear infinite}
+.logo:hover .logo-mark{animation-duration:4s}
 @keyframes flip3d{from{transform:perspective(260px) rotateX(0deg)}to{transform:perspective(260px) rotateX(360deg)}}
 @media(prefers-reduced-motion:reduce){.logo-mark{animation:none}}
 .logo-accent{color:var(--cyan)}
@@ -249,6 +249,25 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .contact-card .hero-ctas{justify-content:center;margin-bottom:24px}
 .contact-card .contact-links{justify-content:center;margin-top:0}
 @media(max-width:560px){.cc-id{flex-direction:column;text-align:center}.cc-role{text-align:center}}
+
+/* pop-up contact (modale) */
+.modal-overlay{position:fixed;inset:0;background:rgba(13,31,53,.6);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:var(--radius);max-width:460px;width:100%;padding:34px 32px;position:relative;box-shadow:0 24px 64px rgba(13,31,53,.32)}
+.modal h2{font-size:1.35rem;margin-bottom:6px}
+.modal .sub{color:var(--ink-soft);font-size:.92rem;margin-bottom:20px}
+.modal-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border:none;background:none;font-size:1.6rem;line-height:1;color:var(--ink-soft);cursor:pointer;border-radius:8px}
+.modal-close:hover{color:var(--ink);background:var(--paper)}
+.field{margin-bottom:14px;text-align:left}
+.field label{display:block;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 13px;font-family:inherit;font-size:.95rem;color:var(--ink);background:#fff}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(46,91,255,.12)}
+.field textarea{min-height:112px;resize:vertical}
+.modal form .cta-btn{width:100%;text-align:center;border:none;cursor:pointer;font-size:1rem}
+.modal-status{margin-top:12px;font-size:.9rem;text-align:center;min-height:1.2em}
+.modal-status.ok{color:#15803d;font-weight:600}
+.modal-status.err{color:var(--amber-deep)}
+.honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 
 /* footer */
 footer{background:var(--ink);color:#8FA3BB;border-top:1px solid var(--line-dark);padding:36px 0;font-size:.85rem}
