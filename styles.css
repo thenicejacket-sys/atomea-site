@@ -39,6 +39,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,31,53,.92);backdrop-f
 .nav-links a{color:#C6D3E2;text-decoration:none;font-size:.92rem;white-space:nowrap}
 .nav-links a:hover{color:#7FD1C8}
 .nav-links a.active{color:var(--cyan);font-weight:600}
+.help-btn{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;border:1px solid var(--line-dark);border-radius:8px;color:#C6D3E2;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;flex:none}
+.help-btn:hover{border-color:var(--cyan);color:var(--cyan)}
 .lang-flag{background:none;border:1px solid var(--line-dark);border-radius:8px;padding:12px 10px;min-height:44px;cursor:pointer;display:flex;align-items:center;flex:none}
 .lang-flag:hover{border-color:var(--cyan)}
 .lang-flag svg{width:30px;height:20px;border-radius:3px;display:block}
@@ -237,6 +239,17 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .blueprint .final .bridge,.final.on-dark .bridge{color:#B9C8D9}
 .final .hero-ctas{justify-content:center}
 
+/* fiche contact */
+.contact-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 14px 36px rgba(13,31,53,.10);max-width:620px;margin:0 auto;padding:40px 38px;text-align:center}
+.cc-id{display:flex;align-items:center;gap:18px;justify-content:center;text-align:left;margin-bottom:22px}
+.cc-avatar{width:74px;height:74px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:1px solid var(--line);flex:none}
+.cc-name{font-size:1.4rem;margin:0}
+.cc-role{font-size:.92rem;color:var(--ink-soft);margin-top:3px;max-width:26em}
+.contact-card .lead{margin:0 auto 22px}
+.contact-card .hero-ctas{justify-content:center;margin-bottom:24px}
+.contact-card .contact-links{justify-content:center;margin-top:0}
+@media(max-width:560px){.cc-id{flex-direction:column;text-align:center}.cc-role{text-align:center}}
+
 /* footer */
 footer{background:var(--ink);color:#8FA3BB;border-top:1px solid var(--line-dark);padding:36px 0;font-size:.85rem}
 footer .wrap{display:flex;flex-direction:column;gap:14px}
@@ -249,7 +262,9 @@ footer a{color:var(--cyan);text-decoration:none}
 
 /* responsive */
 @media(max-width:1180px){
-  .nav-links{gap:20px;padding:0 20px}
+  .nav{gap:16px}
+  .nav-right{gap:12px}
+  .nav-links{gap:16px;padding:0 14px}
   .logo-tag{display:none}
 }
 @media(max-width:900px){
@@ -265,7 +280,7 @@ footer a{color:var(--cyan);text-decoration:none}
 }
 @media(max-width:560px){
   .logo-tag{display:none}
-  .nav-right>.cta-btn{padding:8px 12px;font-size:.8rem}
+  .nav-right>.cta-btn{display:none}
   .cards-4{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
