@@ -29,11 +29,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,31,53,.92);backdrop-f
 .logo-stack{display:flex;flex-direction:column;line-height:1.25}
 .logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:.02em;color:#C6D3E2}
 .logo{display:flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.18em}
-.logo-mark{width:50px;height:50px;flex:none}
-.logo-mark .orbits{transform-origin:50% 50%}
-.logo:hover .logo-mark .orbits{animation:orbit 8s linear infinite}
+.logo-mark{width:50px;height:50px;flex:none;transform-origin:50% 50%;animation:orbit 16s linear infinite}
+.logo:hover .logo-mark{animation-duration:6s}
 @keyframes orbit{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.logo:hover .logo-mark .orbits{animation:none}}
+@media(prefers-reduced-motion:reduce){.logo-mark{animation:none}}
 .logo-accent{color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:20px}
 .nav-links{display:flex;gap:30px;padding:0 32px;border-left:1px solid var(--line-dark);border-right:1px solid var(--line-dark);align-self:stretch;align-items:center}
