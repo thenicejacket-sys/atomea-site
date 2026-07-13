@@ -206,6 +206,8 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .case h3{font-size:1.15rem}
 .case p{font-size:.95rem;color:var(--ink-soft)}
 .case .result{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--cobalt)}
+.case .big-gain{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.55rem;color:var(--cobalt);line-height:1.15}
+.case .big-gain small{display:block;font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:.9rem;color:var(--ink-soft);margin-top:6px}
 
 /* à propos */
 .about-grid{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start}
