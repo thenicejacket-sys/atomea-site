@@ -157,9 +157,10 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 
 /* piliers */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.pillar{background:#fff;border:1px solid var(--line);border-top:4px solid var(--cobalt);border-radius:var(--radius);padding:32px 28px}
-.pillar-icon{width:48px;height:48px;border-radius:12px;background:rgba(46,91,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.pillar-icon svg{width:25px;height:25px;stroke:var(--cobalt);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pillar{background:#fff;border:1px solid var(--line);border-top:4px solid var(--cobalt);border-radius:var(--radius);padding:32px 28px;transition:transform .18s ease,box-shadow .18s ease}
+.pillar:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(13,31,53,.12)}
+.pillar-icon{width:56px;height:56px;border-radius:15px;background:var(--cobalt);box-shadow:0 10px 22px rgba(46,91,255,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.pillar-icon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .pillar .mono{color:var(--cobalt);display:block;margin-bottom:14px}
 /* apparition des piliers au chargement (CSS pur, sans flash, fin toujours visible) */
 @media(prefers-reduced-motion:no-preference){
