@@ -251,6 +251,15 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .contact-card .contact-links{justify-content:center;margin-top:0}
 @media(max-width:560px){.cc-id{flex-direction:column;text-align:center}.cc-role{text-align:center}}
 
+/* en-tête secteur avec illustration */
+.sector-head{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;margin-bottom:30px}
+.sector-head .lead{margin-bottom:0}
+.sector-illus{width:100%;border-radius:var(--radius);display:block;box-shadow:0 14px 34px rgba(13,31,53,.12)}
+@media(max-width:760px){.sector-head{grid-template-columns:1fr;gap:22px}.sector-illus{max-width:440px;margin:0 auto}}
+
+/* capture d'app en tête de carte */
+.case-shot{display:block;width:calc(100% + 56px);margin:-30px -28px 20px;border-radius:var(--radius) var(--radius) 0 0;aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+
 /* blocs-outils (réalisations énergie) */
 .tool{background:#fff;border:1px solid var(--line);border-left:5px solid var(--cobalt);border-radius:var(--radius);padding:30px 30px;margin-bottom:20px}
 .tool .tag{color:var(--cobalt);display:block;margin-bottom:8px}
