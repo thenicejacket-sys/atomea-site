@@ -1,7 +1,7 @@
 /* ══════════ I18N — tous les textes EN ici (FR est dans le HTML) ══════════ */
 const I18N_EN = {
   logo_tag:"Consulting & expertise for your business",
-  nav_services:"Services", nav_ec:"Accounting firms", nav_method:"Method", nav_cases:"Case studies", nav_about:"About", nav_cta:"Let's talk",
+  nav_services:"Services", nav_ec:"Accounting firms", nav_method:"Method", nav_cases:"Other sectors", nav_about:"About", nav_cta:"Let's talk",
   hero_eyebrow:"Consulting · Automation · Training",
   hero_title:"Data entry, follow-ups, reporting: hand them to AI. <em>Get your hours back.</em>",
   hero_sub:"Diagnosis, automation, custom-built tools, training: measurable results within weeks — without changing your software, whatever your size.",
@@ -72,7 +72,7 @@ const I18N_EN = {
   met3_d:"2 to 8 weeks", met3_t:"Deploy", met3_p:"We build and roll out quickly, in short iterations, together with your teams.",
   met4_d:"Ongoing", met4_t:"Transfer", met4_p:"We train your people so the solution lives and grows without dependency.",
   met1_dev:"Deliverable: friction map & quick wins", met2_dev:"Deliverable: quantified scope & expected ROI", met3_dev:"Deliverable: solution live in production", met4_dev:"Deliverable: autonomous, trained team",
-  cas_eyebrow:"Case studies",
+  cas_eyebrow:"Other sectors",
   cas_title:"Solutions in production, not slides.",
   cas_lead:"A few examples of what we have built and deployed.",
   cas_intro:"From energy renovation to custom applications, by way of team productivity: here is what we have built and put into production. Different sectors, one method — automating what repeats.",
