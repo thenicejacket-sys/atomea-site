@@ -12,7 +12,7 @@ const I18N_EN = {
   pr3:"first call — free, no strings attached",
   res_eyebrow:"Concrete results",
   res_title:"What companies gain when they automate with us.",
-  res1:"of a full-time role freed up every month: 30 to 45 min saved per file, on 20 to 30 files — time-consuming checks that don't deserve your experts",
+  res1:"of a full-time role freed up every month: 45 min saved per file, on 20 to 30 files — time-consuming checks that don't deserve your experts",
   res1_n:"≈ 10%",
   res2_n:"×2 to ×3",
   res2:"the activity target of a mid-sized energy-renovation company, with no headcount increase",
@@ -83,8 +83,8 @@ const I18N_EN = {
   evo_tag:"Fitness app", evo_t:"Evolve — strength coaching", evo_p:"A strength-training coaching app: structured programs, load and RPE tracking, block periodization. Designed, developed and shipped to production.", evo_r:"A complete product, online and used daily",
   cardio_tag:"Fitness app", cardio_t:"Cardio — guided training", cardio_p:"A cardio-training app: paced sessions, an AI voice coach, round timer and motivational cues synthesized in real time.", cardio_r:"Real-time AI voice and polished UX, end to end",
   asst_tag:"AI assistant", asst_t:"Versatile AI assistant", asst_p:"A voice-driven assistant: natural-language commands, tool and connected-device integration, orchestration of specialized agents and everyday task automation.", asst_r:"Voice, API integrations and multi-agent — the architecture of a business assistant",
-  cas1_tag:"Energy renovation", cas1_t:"Reliable project reviews", cas1_p:"Custom project review and pre-costing application: faster file analysis, safer commitment decisions.", cas1_r:"≈ 45 min saved / project<small>Profitability analysis goes from hours to minutes — with far fewer errors</small>",
-  cas2_tag:"Energy renovation", cas2_t:"Audit quality control", cas2_p:"Automated audit comparison and control tool: inconsistencies and deviations detected systematically.", cas2_r:"30–45 min saved / file<small>On 20–30 files every month — ≈ 10% of a full-time role freed up</small>",
+  cas1_tag:"Energy renovation", cas1_t:"Reliable project reviews", cas1_p:"Custom project review and pre-costing app: faster analysis, errors eliminated, safer commitment decisions — and a clear view of bottlenecks to steer proactively.", cas1_r:"saved per project — profitability analysis goes from hours to minutes",
+  cas2_tag:"Energy renovation", cas2_t:"Audit quality control", cas2_p:"Automated audit comparison and control tool: inconsistencies and deviations detected systematically.", cas2_r:"of a full-time role freed up every month — 45 min saved per file, across 20–30 files",
   cas3_tag:"Productivity", cas3_t:"Intelligent meeting assistant", cas3_p:"Fully local, confidential meeting recording and analysis: minutes, decisions and action items generated effortlessly.", cas3_r:"Minutes ready to send within moments of every meeting",
   cas4_tag:"Artificial intelligence", cas4_t:"AI agent ecosystem", cas4_p:"A complete set of specialized AI assistants — analysis, diagnosis, proposal drafting, automated monitoring — mastered end to end.", cas4_r:"A team of AI assistants available 24/7",
   cas5_tag:"Ongoing mission",
@@ -130,9 +130,8 @@ const I18N_EN = {
   ec_a4_t:"Augmented review", ec_a4_p:"Pre-analyzed lead schedules, explained variances, suggested audit points: supervision focuses on judgment.",
   ec_a5_t:"The firm's own reminders", ec_a5_p:"Outstanding fees and receivables: graduated automatic reminders, without thinking about it.",
   ec_a6_t:"E-invoicing", ec_a6_p:"Platform choice, flow compliance — and above all: turning it into an automation opportunity rather than a regulatory burden.",
-  ec_pr1:"of finance processes in large groups (SAP FI/CO, S/4HANA migrations)",
-  ec_pr2_n:"≈ 10%",
-  ec_pr2:"of a full-time role freed up every month — 30 to 45 min saved per file on automated checks, in production at our clients",
+  ec_pr1:"saved per file on automated reviews and controls",
+  ec_pr2:"of a full-time role freed up every month, in production at our clients",
   ec_pr3:"of engagements include skills transfer — your team stays in control",
   ec_re_eyebrow:"Your constraints are ours", ec_re_title:"Professional secrecy, GDPR, your software.",
   ec_r1_tag:"Confidentiality", ec_r2_tag:"Your tools", ec_r3_tag:"Measured",
@@ -279,6 +278,33 @@ document.getElementById('lang-flag').addEventListener('click', () => {
   frame();
   // redessine la frame statique une fois Space Grotesk chargée
   if (REDUCED && document.fonts && document.fonts.ready) document.fonts.ready.then(() => frame());
+})();
+
+/* ══════════ Compteurs animés (0 → cible quand le chiffre entre à l'écran) ══════════ */
+(function(){
+  const els = document.querySelectorAll('.count[data-to]');
+  if (!els.length) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = (el, v) => (el.dataset.prefix || '') + v + (el.dataset.suffix || '');
+  function run(el){
+    const to = parseFloat(el.dataset.to);
+    if (reduce) { el.textContent = fmt(el, to); return; }
+    const dur = 1300; let start = null;
+    function step(ts){
+      if (start === null) start = ts;
+      const p = Math.min(1, (ts - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(el, Math.round(to * eased));
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(el, to);
+    }
+    requestAnimationFrame(step);
+  }
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(run); return; }
+  els.forEach(el => { el.textContent = fmt(el, 0); });   // départ à 0, évite le flash de la valeur finale
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  els.forEach(el => io.observe(el));
 })();
 
 /* ══════════ Menu mobile ══════════ */
