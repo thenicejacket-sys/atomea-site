@@ -77,7 +77,7 @@ const I18N_EN = {
   cas_lead:"A few examples of what we have built and deployed.",
   cas_intro:"From energy renovation to custom applications, by way of team productivity: here is what we have built and put into production. Different sectors, one method — automating what repeats.",
   agf_eyebrow:"Personal AI Infrastructure", agf_title:"An AI-agent platform, in production.",
-  agf_desc:"My own AI-agent infrastructure: an ecosystem of multi-domain professional experts — including an accounting expert — and specialized tools (research, analysis & data, automation, communication, strategy), orchestrated to think, execute and deliver. Concrete proof of what I design and ship.",
+  agf_desc:"A team of accounting experts and domain-specialized professional agents, with their dedicated tools.",
   agf_s1:"active AI agents", agf_s2:"tasks executed", agf_s3:"success rate", agf_s4:"availability",
   sec_ener_eyebrow:"Energy renovation & EEC", sec_ener_title:"Two flagship tools, in production.",
   sec_ener_lead:"My two applications, live at an energy-renovation company.",
