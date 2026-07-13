@@ -3,6 +3,7 @@
     { "source": "/agents", "destination": "/agents/", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/agents/", "destination": "https://atum-five.vercel.app/" },
     { "source": "/agents/:path*", "destination": "https://atum-five.vercel.app/:path*" },
     { "source": "/api/:path*", "destination": "https://atum-five.vercel.app/api/:path*" }
   ]
