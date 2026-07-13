@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { "source": "/agents", "destination": "/agents/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/agents/:path*", "destination": "https://atum-five.vercel.app/:path*" },
+    { "source": "/api/:path*", "destination": "https://atum-five.vercel.app/api/:path*" }
+  ]
+}

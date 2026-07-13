@@ -1,7 +1,7 @@
 /* ══════════ I18N — tous les textes EN ici (FR est dans le HTML) ══════════ */
 const I18N_EN = {
   logo_tag:"Automation & AI for your business",
-  nav_services:"Services", nav_ec:"Accounting firms", nav_method:"Method", nav_cases:"Other sectors", nav_about:"About", nav_agents:"Agents", nav_cta:"Let's talk",
+  nav_services:"Services", nav_ec:"Accounting firms", nav_method:"Method", nav_cases:"Other sectors", nav_about:"About", nav_cta:"Let's talk",
   hero_eyebrow:"Consulting · Automation · Training",
   hero_title:"Data entry, follow-ups, reporting: hand them to AI. <em>Get your hours back.</em>",
   hero_sub:"Diagnosis, automation, custom-built tools, training: measurable results within weeks — without changing your software, whatever your size.",
