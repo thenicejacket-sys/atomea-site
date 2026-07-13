@@ -158,7 +158,16 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 /* piliers */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .pillar{background:#fff;border:1px solid var(--line);border-top:4px solid var(--cobalt);border-radius:var(--radius);padding:32px 28px}
+.pillar-icon{width:48px;height:48px;border-radius:12px;background:rgba(46,91,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pillar-icon svg{width:25px;height:25px;stroke:var(--cobalt);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .pillar .mono{color:var(--cobalt);display:block;margin-bottom:14px}
+/* apparition au scroll (état masqué ajouté uniquement si le JS tourne, via .js-anim) */
+@media(prefers-reduced-motion:no-preference){
+  .js-anim .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+  .js-anim .reveal.in{opacity:1;transform:none}
+  .js-anim .pillars .reveal:nth-child(2){transition-delay:.12s}
+  .js-anim .pillars .reveal:nth-child(3){transition-delay:.24s}
+}
 .pillar h3{font-size:1.25rem;margin-bottom:6px}
 .pillar .promise{font-weight:600;color:var(--cobalt);font-size:.95rem;margin-bottom:14px}
 .pillar p{font-size:.95rem;color:var(--ink-soft);margin-bottom:16px}

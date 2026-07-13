@@ -320,6 +320,20 @@ document.getElementById('lang-flag').addEventListener('click', () => {
   els.forEach(el => io.observe(el));
 })();
 
+/* ══════════ Apparition au scroll (.reveal) ══════════ */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    return; // pas d'animation → les éléments restent visibles (aucun état masqué appliqué)
+  }
+  document.documentElement.classList.add('js-anim'); // active l'état masqué seulement maintenant
+  const io = new IntersectionObserver((ents) => {
+    ents.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.18 });
+  els.forEach(e => io.observe(e));
+})();
+
 /* ══════════ Pop-up contact ══════════ */
 (function(){
   const T = {
