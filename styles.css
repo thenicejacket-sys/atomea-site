@@ -29,9 +29,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,31,53,.92);backdrop-f
 .logo-stack{display:flex;flex-direction:column;line-height:1.25}
 .logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:.02em;color:#C6D3E2}
 .logo{display:flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.18em}
-.logo-mark{width:50px;height:50px;flex:none;transform-origin:50% 50%;animation:orbit 16s linear infinite}
+.logo-mark{width:50px;height:50px;flex:none;transform-origin:50% 50%;animation:flip3d 16s linear infinite}
 .logo:hover .logo-mark{animation-duration:6s}
-@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes flip3d{from{transform:perspective(260px) rotateX(0deg)}to{transform:perspective(260px) rotateX(360deg)}}
 @media(prefers-reduced-motion:reduce){.logo-mark{animation:none}}
 .logo-accent{color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:20px}
@@ -101,11 +101,12 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .page-hero .lead{margin-bottom:0}
 
 /* ── variantes sur fond clair ── */
-.steps.on-light .step::before{background:var(--line)}
+.steps.on-light .step{background:#fff;border:1px solid var(--line);border-top:3px solid var(--cobalt)}
 .steps.on-light .num{color:var(--cobalt)}
 .steps.on-light .step h3{color:var(--ink)}
 .steps.on-light .step .dur{color:var(--amber-deep)}
 .steps.on-light .step p{color:var(--ink-soft)}
+.steps.on-light .step .deliv{color:var(--amber-deep)}
 .faq.on-light details{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2px 22px;margin-bottom:12px}
 .faq.on-light summary{color:var(--ink);padding:16px 36px 16px 0}
 .faq.on-light summary::after{color:var(--cobalt);right:0}
@@ -172,14 +173,26 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .niche-open{margin-top:32px;padding-top:24px;border-top:1px dashed var(--line);font-style:italic;color:var(--ink-soft);font-size:.95rem}
 @media(max-width:900px){.niche-grid{grid-template-columns:1fr}.niche-card{padding:30px 24px}}
 
-/* méthode */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step;position:relative}
-.step{padding:28px 24px 0 0;position:relative}
-.step::before{content:"";position:absolute;top:0;left:0;right:24px;height:1px;background:var(--line-dark)}
+/* méthode — étapes en cartes */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.step{padding:24px 22px;border-radius:var(--radius);border:1px solid var(--line-dark);border-top:3px solid var(--cyan);background:rgba(127,209,200,.05)}
 .step .num{font-family:'IBM Plex Mono',monospace;color:var(--cyan);font-size:.8rem;letter-spacing:.14em;display:block;margin-bottom:14px}
 .step h3{color:#fff;font-size:1.15rem;margin-bottom:8px}
 .step .dur{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.1em;display:block;margin-bottom:10px}
 .step p{font-size:.92rem;color:#B9C8D9}
+
+/* intro séquentielle des étapes (1→2→3→4 en solo, puis toutes ensemble) */
+@media(prefers-reduced-motion:no-preference){
+  .steps.seq .step{opacity:0}
+  .steps.seq .step:nth-child(1){animation:stepseq1 5s ease forwards}
+  .steps.seq .step:nth-child(2){animation:stepseq2 5s ease forwards}
+  .steps.seq .step:nth-child(3){animation:stepseq3 5s ease forwards}
+  .steps.seq .step:nth-child(4){animation:stepseq4 5s ease forwards}
+}
+@keyframes stepseq1{0%{opacity:0;transform:translateY(10px)}3%{opacity:1;transform:translateY(0)}16%{opacity:1;transform:translateY(0)}21%,64%{opacity:0;transform:translateY(10px)}69%,100%{opacity:1;transform:translateY(0)}}
+@keyframes stepseq2{0%,16%{opacity:0;transform:translateY(10px)}19%{opacity:1;transform:translateY(0)}32%{opacity:1;transform:translateY(0)}37%,64%{opacity:0;transform:translateY(10px)}69%,100%{opacity:1;transform:translateY(0)}}
+@keyframes stepseq3{0%,32%{opacity:0;transform:translateY(10px)}35%{opacity:1;transform:translateY(0)}48%{opacity:1;transform:translateY(0)}53%,64%{opacity:0;transform:translateY(10px)}69%,100%{opacity:1;transform:translateY(0)}}
+@keyframes stepseq4{0%,48%{opacity:0;transform:translateY(10px)}51%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
 
 .steps.cols-3{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.steps.cols-3{grid-template-columns:1fr}}
