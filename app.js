@@ -372,7 +372,13 @@ document.getElementById('lang-flag').addEventListener('click', () => {
       const j = await res.json().catch(()=>({}));
       if(res.ok && (j.success===true || j.success==='true')){ statusEl.className='modal-status ok'; statusEl.textContent = t.ok; form.reset(); }
       else throw new Error('fail');
-    }catch(err){ statusEl.className='modal-status err'; statusEl.textContent = t.err; }
+    }catch(err){
+      statusEl.className='modal-status err'; statusEl.textContent = t.err;
+      const d = new FormData(form);
+      const subj = encodeURIComponent(d.get('subject') || 'Message depuis atomea.io');
+      const body = encodeURIComponent('Nom : ' + (d.get('name')||'') + '\nEmail : ' + (d.get('email')||'') + '\n\n' + (d.get('message')||''));
+      window.location.href = 'mailto:contact@atomea.io?subject=' + subj + '&body=' + body;
+    }
   });
 })();
 
