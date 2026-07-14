@@ -97,7 +97,7 @@ const I18N_EN = {
   cas4_tag:"Artificial intelligence", cas4_t:"AI agent ecosystem", cas4_p:"A complete set of specialized AI assistants — analysis, diagnosis, proposal drafting, automated monitoring — mastered end to end.", cas4_r:"A team of AI assistants available 24/7",
   cas5_tag:"Ongoing mission",
   cas5_p:"A mid-sized energy-renovation company is preparing its <strong>full digital transformation</strong> with us: goal — <strong>double to triple the activity</strong> in the coming months, at constant headcount, by automating most business flows.",
-  cas6_tag:"And you?", cas6_t:"What about you and your company?", cas6_p:"What if we looked together at your processes, your bottlenecks, the tasks that eat your time? A quick gap analysis of one of your review processes, and we pinpoint exactly where automation pays off. Let's find solutions today, together.", cas6_r:"Book 30 min — free",
+  cas6_t:"You and your company — where do things stand?", cas6_p:"What if we looked together at your processes, your bottlenecks, the tasks that eat your time? A quick gap analysis of one of your review processes, and we pinpoint exactly where automation pays off. Let's find solutions today, together.", cas6_r:"Book 30 min — free",
   ab_eyebrow:"About us",
   ab_title:"Business first, technology second.",
   ab_caption:"Aymeric Barre — founder",
