@@ -247,6 +247,7 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 
 /* CTA final */
 #contraintes{padding-bottom:24px}
+#contraintes .niche-card{padding-bottom:20px}
 .final{padding:16px 0 80px;text-align:center}
 .final h2{margin:0 auto 14px}
 .final .lead{margin:0 auto 12px}
