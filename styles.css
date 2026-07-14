@@ -157,7 +157,7 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 @media(max-width:900px){.terrains-grid{grid-template-columns:1fr}}
 
 /* piliers */
-#services{padding-top:32px}
+#services{padding-top:32px;padding-bottom:24px}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .pillar{background:#fff;border:1px solid var(--line);border-top:4px solid var(--cobalt);border-radius:var(--radius);padding:24px 24px;transition:transform .18s ease,box-shadow .18s ease}
 .pillar:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(13,31,53,.12)}
@@ -246,7 +246,8 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .faq details p{color:#B9C8D9;font-size:.95rem;padding:0 0 18px;max-width:40em}
 
 /* CTA final */
-.final{padding:28px 0 80px;text-align:center}
+#contraintes{padding-bottom:24px}
+.final{padding:16px 0 80px;text-align:center}
 .final h2{margin:0 auto 14px}
 .final .lead{margin:0 auto 12px}
 .contact-links{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
