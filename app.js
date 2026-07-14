@@ -187,7 +187,10 @@ function setLang(lang){
   });
   document.documentElement.lang = lang;
   const lf = document.getElementById('lang-flag');
-  if (lf) lf.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+  if (lf) {
+    lf.textContent = lang === 'fr' ? 'EN' : 'FR';
+    lf.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+  }
   try { localStorage.setItem('atomea-lang', lang); } catch(e){}
 }
 document.getElementById('lang-flag').addEventListener('click', () => {
