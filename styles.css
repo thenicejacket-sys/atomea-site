@@ -194,7 +194,7 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .niche-open{margin-top:32px;padding-top:24px;border-top:1px dashed var(--line);font-style:italic;color:var(--ink-soft);font-size:.95rem}
 @media(max-width:900px){.niche-grid{grid-template-columns:1fr}.niche-card{padding:30px 24px}}
 
-/* méthode — étapes en cartes */
+/* méthode étapes en cartes */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
 .step{padding:24px 22px;border-radius:var(--radius);border:1px solid var(--line-dark);border-top:3px solid var(--cyan);background:rgba(127,209,200,.05)}
 .step .num{font-family:'IBM Plex Mono',monospace;color:var(--cyan);font-size:.8rem;letter-spacing:.14em;display:block;margin-bottom:14px}

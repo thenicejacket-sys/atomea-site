@@ -1,13 +1,13 @@
-# Atomea — Site vitrine
+# Atomea Site vitrine
 
-Site multi-pages bilingue FR/EN d'**Atomea** — cabinet de conseil en transformation d'organisation, automatisation et IA d'entreprise.
+Site multi-pages bilingue FR/EN d'**Atomea** cabinet de conseil en transformation d'organisation, automatisation et IA d'entreprise.
 
 ## Caractéristiques
 
-- **Multi-pages** : `index`, `services`, `experts-comptables` (landing cold email), `methode`, `realisations`, `apropos`, `faq`, `contact` — CSS (`styles.css`) et JS (`app.js`) partagés, aucun build requis
+- **Multi-pages** : `index`, `services`, `experts-comptables` (landing cold email), `methode`, `realisations`, `apropos`, `faq`, `contact` CSS (`styles.css`) et JS (`app.js`) partagés, aucun build requis
 - **Bilingue** : bascule FR/EN (`data-i18n`, dictionnaire EN dans `app.js`), détection pays par IP, choix mémorisé (localStorage)
-- **Design « blueprint »** : panneaux marine quadrillés, annotations mono, animation de particules dans le hero — le mot ATOMEA se révèle quand la structure s'assemble (« le déclic ») ; frame statique si `prefers-reduced-motion`
-- **Positionnement 3 terrains** : cabinets comptables (page dédiée) · rénovation énergétique · PME — section « Nos terrains » sur l'accueil
+- **Design « blueprint »** : panneaux marine quadrillés, annotations mono, animation de particules dans le hero le mot ATOMEA se révèle quand la structure s'assemble (« le déclic ») ; frame statique si `prefers-reduced-motion`
+- **Positionnement 3 terrains** : cabinets comptables (page dédiée) · rénovation énergétique · PME section « Nos terrains » sur l'accueil
 - **Partage** : balises Open Graph sur chaque page + `og-image.png` (1200×630)
 
 ## Avant mise en ligne / au passage au domaine custom
