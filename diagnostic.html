@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Atomea</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s;
+            background: #fafafa;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 32px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+
+        .success-message h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Diagnostic ATOMEA</h1>
+            <p>Avant notre appel découverte de 30 minutes, quelques questions pour que je comprenne mieux votre contexte.</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            <h2>✅ Rendez-vous confirmé !</h2>
+            <p id="successDetail">Votre créneau est réservé. L'invitation Google Meet arrive dans votre boîte mail.</p>
+        </div>
+
+        <div class="success-message" id="errorMessage" style="background:#f8d7da;color:#721c24;border-color:#f5c6cb">
+            <h2>⚠️ Réservation impossible</h2>
+            <p id="errorDetail">Ce créneau vient d'être pris. Choisissez-en un autre.</p>
+        </div>
+
+        <form id="discoveryForm">
+            <div class="section-title">Vos coordonnées</div>
+
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Aymeric" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Barré">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="aymeric@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Entreprise</label>
+                <input type="text" id="company" name="company" placeholder="ACME Consulting" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Votre rôle (optionnel)</label>
+                <input type="text" id="role" name="role" placeholder="Ex: Dirigeant, DAF, Expert-comptable, Responsable opérations...">
+            </div>
+
+            <div class="section-title">Votre contexte</div>
+
+            <div class="form-group">
+                <label for="process">Processus à améliorer</label>
+                <textarea id="process" name="process" placeholder="Quel processus ralentit le plus votre équipe actuellement ? Décrivez les volumes et les outils utilisés si vous les connaissez." required></textarea>
+                <div class="helper-text">Soyez précis : facturation, reconciliation, recrutement, etc. Le reste, on le verra ensemble pendant l'appel.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations">Vos attentes du diagnostic (optionnel)</label>
+                <select id="expectations" name="expectations">
+                    <option value="">-- Sélectionnez --</option>
+                    <option value="identifier-gains">Identifier les gains possibles (temps, coût)</option>
+                    <option value="faisabilite-tech">Vérifier la faisabilité technique</option>
+                    <option value="chiffrage">Avoir un chiffrage et une roadmap</option>
+                    <option value="validation-decision">Valider une décision déjà prise</option>
+                    <option value="budget-initial">Valider le budget initial</option>
+                    <option value="autre-expectations">Autre</option>
+                </select>
+            </div>
+
+            <div class="section-title">Choisissez votre créneau</div>
+
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="slotDay">Jour</label>
+                    <select id="slotDay" required>
+                        <option value="">Chargement des disponibilités…</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="slotTime">Heure</label>
+                    <select id="slotTime" required>
+                        <option value="">--</option>
+                    </select>
+                </div>
+            </div>
+            <div class="helper-text" style="margin-top:-16px;margin-bottom:24px">30 minutes en visio Google Meet, heure de Paris. Vous recevrez l'invitation par email.</div>
+
+            <button type="submit" id="submitBtn">Réserver mon créneau</button>
+        </form>
+    </div>
+
+    <script>
+        // ⚙️ URL de la Web App Google Apps Script (voir questionnaire-backend/DEPLOIEMENT.md)
+        const APPS_SCRIPT_URL = 'https://script.google.com/a/macros/atomea.io/s/AKfycbzlO4u8GY-vYOpX_HdXdci5ZfH8gew8CIC81XRFYVPWrYLe_AXM5U-IznsRxUaaqjSr/exec';
+
+        let slotsByDay = {};
+
+        // Charge les créneaux libres au chargement de la page
+        async function loadSlots() {
+            const daySelect = document.getElementById('slotDay');
+            const timeSelect = document.getElementById('slotTime');
+            try {
+                const res = await fetch(APPS_SCRIPT_URL);
+                const data = await res.json();
+                if (!data.ok) throw new Error(data.error);
+
+                slotsByDay = {};
+                data.slots.forEach(iso => {
+                    const d = new Date(iso);
+                    const dayKey = d.toLocaleDateString('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long', day: 'numeric', month: 'long' });
+                    (slotsByDay[dayKey] = slotsByDay[dayKey] || []).push(iso);
+                });
+
+                daySelect.innerHTML = '<option value="">-- Choisissez un jour --</option>' +
+                    Object.keys(slotsByDay).map(day => `<option value="${day}">${day}</option>`).join('');
+            } catch (err) {
+                daySelect.innerHTML = '<option value="">Disponibilités indisponibles, réessayez plus tard</option>';
+                console.error('Chargement des créneaux impossible :', err);
+            }
+
+            daySelect.addEventListener('change', () => {
+                const slots = slotsByDay[daySelect.value] || [];
+                timeSelect.innerHTML = '<option value="">-- Heure --</option>' +
+                    slots.map(iso => {
+                        const t = new Date(iso).toLocaleTimeString('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' });
+                        return `<option value="${iso}">${t}</option>`;
+                    }).join('');
+            });
+        }
+        loadSlots();
+
+        document.getElementById('discoveryForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const slot = document.getElementById('slotTime').value;
+            if (!slot) {
+                document.getElementById('errorDetail').textContent = 'Choisissez un jour et une heure pour votre rendez-vous.';
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => document.getElementById('errorMessage').style.display = 'none', 4000);
+                return;
+            }
+
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                role: document.getElementById('role').value,
+                process: document.getElementById('process').value,
+                expectations: document.getElementById('expectations').value,
+                slot: slot,
+                submittedAt: new Date().toISOString()
+            };
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Réservation en cours…';
+
+            try {
+                // text/plain = requête "simple" → pas de preflight CORS (requis par Apps Script)
+                const res = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(formData)
+                });
+                const data = await res.json();
+
+                if (data.ok) {
+                    document.getElementById('successDetail').textContent =
+                        'Rendez-vous confirmé le ' + data.dateLabel + '. L\'invitation Google Meet arrive dans votre boîte mail.';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('discoveryForm').style.display = 'none';
+                } else if (data.error === 'slot_taken') {
+                    document.getElementById('errorDetail').textContent = 'Ce créneau vient d\'être réservé par quelqu\'un d\'autre. Choisissez-en un autre.';
+                    document.getElementById('errorMessage').style.display = 'block';
+                    loadSlots();
+                    setTimeout(() => document.getElementById('errorMessage').style.display = 'none', 5000);
+                } else {
+                    throw new Error(data.error || 'unknown');
+                }
+            } catch (err) {
+                console.error('Réservation échouée :', err);
+                document.getElementById('errorDetail').textContent = 'Un problème est survenu. Écrivez-nous à contact@atomea.io et nous vous proposerons un créneau.';
+                document.getElementById('errorMessage').style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Réserver mon créneau';
+            }
+        });
+    </script>
+</body>
+</html>
