@@ -1,6 +1,6 @@
 /* ══════════ I18N tous les textes EN ici (FR est dans le HTML) ══════════ */
 const I18N_EN = {
-  logo_tag:"Automation & AI for your business",
+  logo_tag:"Automation <em>& AI</em> for your business",
   nav_services:"Offers", nav_ec:"Accounting firms", nav_method:"Method", nav_cases:"Other sectors", nav_about:"About", nav_cta:"Let's talk",
   hero_eyebrow:"Consulting · Automation · Training",
   hero_title:"Data entry, follow-ups, reporting: hand them to AI. <em>Get your hours back.</em>",
