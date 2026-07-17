@@ -217,7 +217,7 @@
             <div class="form-group">
                 <label for="process">Processus à améliorer</label>
                 <textarea id="process" name="process" placeholder="Quel processus ralentit le plus votre équipe actuellement ? Décrivez les volumes et les outils utilisés si vous les connaissez." required></textarea>
-                <div class="helper-text">Soyez précis : facturation, reconciliation, recrutement, etc. Le reste, on le verra ensemble pendant l'appel.</div>
+                <div class="helper-text">Par exemple : facturation, rapprochement bancaire, recrutement… Le reste, on le verra ensemble pendant l'appel.</div>
             </div>
 
             <div class="form-group">
@@ -262,6 +262,22 @@
 
         let slotsByDay = {};
 
+        function fillTimes() {
+            const daySelect = document.getElementById('slotDay');
+            const timeSelect = document.getElementById('slotTime');
+            const slots = slotsByDay[daySelect.value] || [];
+            if (!daySelect.value) {
+                timeSelect.innerHTML = '<option value="">Choisissez d\'abord un jour</option>';
+                return;
+            }
+            timeSelect.innerHTML = '<option value="">-- Heure --</option>' +
+                slots.map(iso => {
+                    const t = new Date(iso).toLocaleTimeString('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' });
+                    return `<option value="${iso}">${t}</option>`;
+                }).join('');
+        }
+        document.getElementById('slotDay').addEventListener('change', fillTimes);
+
         // Charge les créneaux libres au chargement de la page
         async function loadSlots() {
             const daySelect = document.getElementById('slotDay');
@@ -278,21 +294,15 @@
                     (slotsByDay[dayKey] = slotsByDay[dayKey] || []).push(iso);
                 });
 
-                daySelect.innerHTML = '<option value="">-- Choisissez un jour --</option>' +
-                    Object.keys(slotsByDay).map(day => `<option value="${day}">${day}</option>`).join('');
+                daySelect.innerHTML = Object.keys(slotsByDay).map(day => `<option value="${day}">${day}</option>`).join('');
+                // Présélectionne le premier jour et remplit ses heures : aucun état vide possible
+                daySelect.selectedIndex = 0;
+                fillTimes();
             } catch (err) {
                 daySelect.innerHTML = '<option value="">Disponibilités indisponibles, réessayez plus tard</option>';
+                timeSelect.innerHTML = '<option value="">--</option>';
                 console.error('Chargement des créneaux impossible :', err);
             }
-
-            daySelect.addEventListener('change', () => {
-                const slots = slotsByDay[daySelect.value] || [];
-                timeSelect.innerHTML = '<option value="">-- Heure --</option>' +
-                    slots.map(iso => {
-                        const t = new Date(iso).toLocaleTimeString('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' });
-                        return `<option value="${iso}">${t}</option>`;
-                    }).join('');
-            });
         }
         loadSlots();
 
