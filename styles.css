@@ -79,7 +79,7 @@ body.nav-open .mobile-nav{display:flex}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
 .hero-proof{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line-dark)}
 .hero-domains{grid-column:1/-1}
-.hero-domains .mono{margin-bottom:0}
+.hero-domains .mono{margin-bottom:0;font-size:.98rem;letter-spacing:.18em;color:#9FE8DF}
 .proof{display:flex;align-items:baseline;gap:12px;font-size:.95rem;color:#B9C8D9}
 .proof .mono{color:var(--amber);font-size:1.1rem;flex:none}
 .hero .mono{color:var(--cyan);display:block;margin-bottom:18px}
