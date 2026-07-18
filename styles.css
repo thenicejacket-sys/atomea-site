@@ -99,8 +99,8 @@ h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;max-width:22em}
 .blueprint .lead{color:#B9C8D9}
 
 /* ── bandeau d'intro de page ── */
-.page-hero{padding:40px 0 28px}
-.page-hero+section{padding-top:44px}
+.page-hero{padding:30px 0 22px}
+.page-hero+section{padding-top:20px}
 .page-hero h1,.page-hero h2{color:#fff}
 .page-hero h1{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.15;margin-bottom:10px;max-width:22em}
 .page-hero .lead{margin-bottom:0}
