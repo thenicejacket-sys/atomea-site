@@ -23,14 +23,15 @@ a{color:var(--cobalt)}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
 /* ── header ── */
-/* le header partage le meme conteneur centre (1120px) que le contenu — alignement logo/titre */
+/* header pleine largeur : logo au bord gauche (léger retrait), actions au bord droit */
+header .wrap{max-width:none;padding:0 28px}
 header{position:sticky;top:0;z-index:50;background:rgba(13,31,53,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
 .logo-stack{display:flex;flex-direction:column;line-height:1.3;gap:2px}
-.logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.03em;color:#EAF1F9}
+.logo-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.03em;color:#EAF1F9;white-space:nowrap}
 .logo-tag em{font-style:normal;color:var(--cyan)}
-.logo{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#fff;text-decoration:none;letter-spacing:.18em}
-.logo-mark{width:44px;height:44px;flex:none;transform-origin:50% 50%;animation:flip3d 9s linear infinite}
+.logo{display:flex;align-items:center;gap:13px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;color:#fff;text-decoration:none;letter-spacing:.18em}
+.logo-mark{width:48px;height:48px;flex:none;transform-origin:50% 50%;animation:flip3d 9s linear infinite}
 .logo:hover .logo-mark{animation-duration:4s}
 @keyframes flip3d{from{transform:perspective(260px) rotateX(0deg)}to{transform:perspective(260px) rotateX(360deg)}}
 @media(prefers-reduced-motion:reduce){.logo-mark{animation:none}}
@@ -78,7 +79,9 @@ body.nav-open .mobile-nav{display:flex}
 .hero .wrap{max-width:1120px}
 /* le hero occupe tout le premier ecran (100vh - header 76px - paddings 40px) */
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:1fr auto;gap:40px;align-items:center;min-height:calc(100vh - 116px)}
-.hero-proof{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px;margin-top:18px;padding-top:22px;border-top:1px solid var(--line-dark)}
+.hero-proof{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px;margin-top:18px;padding-top:22px;position:relative}
+/* ligne pleine largeur au-dessus du bandeau de preuves (déborde du conteneur 1120px) */
+.hero-proof::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:100vw;height:1px;background:var(--line-dark)}
 .hero-domains{grid-column:1/-1}
 .hero .hero-domains .mono{margin-bottom:0;font-size:.85rem;letter-spacing:.18em;color:#9FE8DF}
 .proof{display:flex;align-items:baseline;gap:12px;font-size:.92rem;color:#B9C8D9}
