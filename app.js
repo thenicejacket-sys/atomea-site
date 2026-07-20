@@ -3,7 +3,7 @@ const I18N_EN = {
   logo_tag:"Automation <em>& AI</em> for your business",
   nav_services:"Offers", nav_ec:"Accounting firms", nav_method:"Method", nav_cases:"Other sectors", nav_about:"About", nav_cta:"Let's talk",
   hero_eyebrow:"Consulting · Automation · Training",
-  hero_title:"Data entry, follow-ups, reporting: hand them to AI <em>Get your hours back</em>",
+  hero_title:"Data entry, follow-ups, reporting: hand them to AI. <em>Get your hours back.</em>",
   hero_sub:"Diagnosis, automation, custom-built tools, training: measurable results within weeks without changing your software, whatever your size.",
   hero_cta1:"Book a free call", hero_cta2:"Explore our services",
   hero_canvas:"fig. 01 from disorder to structure",
