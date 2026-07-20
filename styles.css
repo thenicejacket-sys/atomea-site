@@ -83,9 +83,9 @@ body.nav-open .mobile-nav{display:flex}
 .proof{display:flex;align-items:baseline;gap:12px;font-size:.92rem;color:#B9C8D9}
 .proof .mono{color:var(--amber);font-size:1rem;flex:none}
 .hero .mono{color:var(--cyan);display:block;margin-bottom:14px}
-.hero h1{font-size:clamp(1.75rem,3.2vw,2.6rem);font-weight:600;color:#fff;margin-bottom:16px}
+.hero h1{font-size:clamp(1.5rem,2.5vw,2.1rem);font-weight:500;color:#EFF5FA;margin-bottom:28px;line-height:1.28}
 .hero h1 em{font-style:normal;color:var(--cyan)}
-.hero p{font-size:1.02rem;color:#B9C8D9;max-width:36em;margin-bottom:24px}
+.hero p{font-size:.98rem;color:#B9C8D9;max-width:36em;margin-bottom:30px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 #particles{width:100%;height:320px;display:block}
 .hero-canvas-label{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:rgba(127,209,200,.55);text-align:center;margin-top:8px}
